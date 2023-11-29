@@ -54,9 +54,9 @@ export const config = {
         browserName: 'chrome'
     }, {
         browserName: 'firefox'
-    }, {
+    }, /*{
         browserName: 'safari'
-    }],
+    }*/],
 
     //
     // ===================
@@ -89,7 +89,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://webdriver.io/',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

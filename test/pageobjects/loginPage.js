@@ -1,18 +1,14 @@
-import { $ } from '@wdio/globals'
-import Page from './page.js';
+import { $ } from '@wdio/globals';
+import BasePage from './basePage.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
+class LoginPage extends BasePage {
+
+    // Selectors:
+    get usernameField () {
         return $('#user-name');
     }
 
-    get inputPassword () {
+    get passwordField () {
         return $('#password');
     }
 
@@ -20,21 +16,23 @@ class LoginPage extends Page {
         return $('#login-button');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+    get loginLogo () {
+        return $('.login_logo');
+    }
+
+    get loginError () {
+        return $('[data-test="error"]');
+    }
+
+    // Functions:
     async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
+        await this.usernameField.setValue(username);
+        await this.passwordField.setValue(password);
         await this.loginButton.click();
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
     open () {
-        return super.open('');
+        return super.baseUrl('');
     }
 }
 
