@@ -1,6 +1,8 @@
 import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/loginPage.js'
 
+// To do: Turn this into a loop using an array
+
 // Username is incorrect
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
