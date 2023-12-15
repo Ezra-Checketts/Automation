@@ -6,53 +6,41 @@ import LoginPage from '../pageobjects/loginPage.js'
 // Username is incorrect
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('standard', 'secret_sauce');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('standard', 'secret_sauce');
     })
 })
 
 // Password is incorrect
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('error_user', 'secrets_sauces');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('error_user', 'secrets_sauces');
     })
 })
 
 // Username and password are incorrect
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('locked_user', 'secret-sauce');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('locked_user', 'secret-sauce');
     })
 })
 
 // No username input
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('', 'secret_sauce');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('', 'secret_sauce');
     })
 })
 
 // No password input
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('problem_user', '');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('problem_user', '');
     })
 })
 
 // No username or password input
 describe('The website', () => {
     it('should give an error and not allow the login', async () => {
-        await LoginPage.open();
-        await LoginPage.login('', '');
-        await expect(LoginPage.loginLogo).toBeExisting();
+        await LoginPage.incorrectLogin('', '');
     })
 })
